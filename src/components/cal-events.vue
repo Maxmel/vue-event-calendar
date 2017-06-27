@@ -47,9 +47,9 @@ export default {
         let tempDate
         if (this.dayEvents.events.length !== 0) {
           tempDate = Date.parse(new Date(this.dayEvents.events[0].date))
-          return dateTimeFormatter(tempDate, i18n[this.locale].fullFormat)
+          return dateTimeFormatter(tempDate, i18n[this.locale].fullFormat,i18n[this.locale].monthNames)
         } else {
-          tempDate = dateTimeFormatter(Date.parse(new Date(this.dayEvents.date)), i18n[this.locale].fullFormat)
+          tempDate = dateTimeFormatter(Date.parse(new Date(this.dayEvents.date)), i18n[this.locale].fullFormat,i18n[this.locale].monthNames)
           return `${tempDate} ${i18n[this.locale].notHaveEvents}`
         }
       } else {

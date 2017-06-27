@@ -1,4 +1,4 @@
-export function dateTimeFormatter (date ,format) {
+export function dateTimeFormatter (date ,format, monthNames) {
   // 时间格式化辅助函数 date:毫秒数 format:'yyyy-MM-dd hh:mm:ss'
   if (!date || date == "") {
     return ""
@@ -18,6 +18,7 @@ export function dateTimeFormatter (date ,format) {
 
   var map = {
     "M": date.getMonth() + 1, //月份
+    "N": monthNames[date.getMonth()],
     "d": date.getDate(), //日
     "h": date.getHours(), //小时
     "m": date.getMinutes(), //分
@@ -26,7 +27,7 @@ export function dateTimeFormatter (date ,format) {
     "S": date.getMilliseconds() //毫秒
   }
 
-  format = format.replace(/([yMdhmsqS])+/g, function(all, t){
+  format = format.replace(/([yMNdhmsqS])+/g, function(all, t){
     var v = map[t]
     if(v !== undefined){
       if(all.length > 1){
