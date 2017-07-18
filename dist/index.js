@@ -249,6 +249,14 @@ module.exports = function normalizeComponent (
     fullFormat: 'yyyy/MM/dd',
     dayEventsTitle: '모든 이벤트',
     notHaveEvents: '일정이 없습니다'
+  },
+  fr: {
+    dayNames: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+    monthNames: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Tous les événements',
+    notHaveEvents: 'Aucun événement'
   }
 });
 
@@ -663,12 +671,10 @@ var inBrowser = typeof window !== 'undefined';
       var events = this.events.filter(function (event) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
       });
-      if (events.length > 0) {
-        this.selectedDayEvents = {
-          date: date,
-          events: events
-        };
-      }
+      this.selectedDayEvents = {
+        date: date,
+        events: events
+      };
       this.$emit('day-changed', {
         date: date,
         events: events
