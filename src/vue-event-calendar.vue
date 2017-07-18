@@ -202,6 +202,7 @@ export default {
       .title{
         width: 60%;
         text-align: center;
+        cursor: pointer;
       }
       .l{
         text-align: left;
